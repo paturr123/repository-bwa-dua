@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class RequestCrontroller extends Controller
+class RequestController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -61,5 +61,12 @@ class RequestCrontroller extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+
+    //costum
+
+    public function approve($id){
+        
     }
 }

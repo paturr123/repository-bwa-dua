@@ -62,4 +62,11 @@ class ProfileController extends Controller
     {
         //
     }
+
+
+    //costum
+
+    public function delete(){
+        
+    }
 }

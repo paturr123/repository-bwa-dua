@@ -12,7 +12,7 @@ class LandingController extends Controller
      */
     public function index()
     {
-        //
+        return view('pages.landing.index');
     }
 
     /**
@@ -61,5 +61,23 @@ class LandingController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+
+    //costum
+    public function explore(){
+
+    }
+
+    public function detail($id){
+
+    }
+
+    public function booking($id){
+
+    }
+
+    public function detail_booking($id){
+
     }
 }
