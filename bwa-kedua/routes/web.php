@@ -28,8 +28,9 @@ Route::resource('/', LandingController::class);
 
 Route::group(['prefix' => 'member', 'as' => 'member.', 'middleware' => ['auth:sanctum', 'verified']],
 function() {
+
           //dashboard
-          Route::resource('dsahboard', MemberController::class);
+          Route::resource('dashboard', MemberController::class);
 
           //service
           Route::resource('service', ServiceController::class);

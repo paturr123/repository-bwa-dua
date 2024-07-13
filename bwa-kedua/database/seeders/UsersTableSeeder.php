@@ -16,16 +16,16 @@ class UsersTableSeeder extends Seeder
     {
         $users = [
             [
-                'name'               => 'John Doe',
-                'email'              => 'John@mail.com',
+                'name'               => 'Fathur',
+                'email'              => 'Fathur22@gmail.com',
                 'password'           => Hash::make('Admin@12345'),
                 'remember_token'     => NULL,
                 'created_at'         => date('Y-m-d h:i:s'),
                 'updated_at'         => date('Y-m-d h:i:s'),
             ],
             [
-                'name'               => 'Jane Doe',
-                'email'              => 'Jane@mail.com',
+                'name'               => 'Al',
+                'email'              => 'Al22@gmail.com',
                 'password'           => Hash::make('Admin@12345'),
                 'remember_token'     => NULL,
                 'created_at'         => date('Y-m-d h:i:s'),

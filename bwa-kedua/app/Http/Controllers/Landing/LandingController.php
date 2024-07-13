@@ -65,12 +65,14 @@ class LandingController extends Controller
 
 
     //costum
-    public function explore(){
-
+    public function explore()
+    {
+        return view('pages.landing.explore');
     }
 
-    public function detail($id){
-
+    public function detail($id)
+    {
+        return view('pages.landing.detail');
     }
 
     public function booking($id){
