@@ -32,7 +32,7 @@
                     @auth
                         <hr class="block lg:hidden">
                         <a href="{{ route('member.dashboard.index') }}" class="block lg:hidden nav-link text-serv-text">Dashboard</a>
-                        <a href="{{ route('logout') }}" class="block lg:hidden nav-link text-serv-text" onclick="event.preventDefault(); document.getElementByID('logout-form').submit();">Logout                            
+                        <a href="{{ route('logout') }}" class="block lg:hidden nav-link text-serv-text" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout                            
                             <form action="{{ route('logout') }}" id="logout-form" method="POST" style="display: none;">
                                 @csrf
                             </form>
@@ -72,7 +72,7 @@
                         <a class="block px-4 py-2 mt-2 text-sm bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="{{ route('member.dashboard.index') }}">
                                 Dashboard
                             </a>
-                            <a class="block px-4 py-2 mt-2 text-sm bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementByID('logout-form').submit();">                                
+                            <a class="block px-4 py-2 mt-2 text-sm bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">                                
                                 Logout
 
                                 <form action="{{ route('logout') }}" id="logout-form" method="POST" style="display: none;">
