@@ -25,22 +25,12 @@ use App\Models\ExperienceUser;
 
 class ProfileController extends Controller
 {
-    public function __construct()
-    {
-        Route::get('profile', [ProfileController::class])->middleware('auth');
-    }
-
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $user = User::where('id', Auth::user()->id)->first();
-        $experience_user = ExperienceUser::where('detail_user_id', $user->detail_user->id)            
-            ->orderBy('id', 'asc')
-            ->get();
-
-        return view('pages.dashboard.profile', compact('user', 'experience_user'));
+        return view('pages.dashboard.profile');
     }
 
     /**

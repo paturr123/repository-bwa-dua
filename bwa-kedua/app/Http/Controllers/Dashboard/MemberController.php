@@ -21,10 +21,6 @@ use App\Models\OrderStatus;
 
 class MemberController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
 
     /**
      * Display a listing of the resource.
@@ -44,7 +40,7 @@ class MemberController extends Controller
                             ->distinct('freelancer_id')
                             ->count();                                                        
 
-        return view('pages.dashboard.index', compact('orders', 'progress',
+        return view('pages.dashboard.index', compact('order', 'progress',
         'completed', 'freelancer'));
     }
 

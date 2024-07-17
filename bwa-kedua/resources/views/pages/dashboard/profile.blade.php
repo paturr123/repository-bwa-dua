@@ -21,6 +21,7 @@
               <div class="grid gap-5 md:grid-cols-12">
                   <main class="col-span-12 p-4 md:pt-0">
                       <div class="px-2 py-2 mt-2 bg-white rounded-xl">
+
                           <form action="#" method="POST">
                               <div class="">
                                   <div class="px-4 py-5 sm:p-6">
@@ -39,7 +40,7 @@
                                                       Delete
                                                   </button>
                                               </div>
-                                          </div>
+                                          </div>                                        
                                           <div class="md:col-span-6 lg:col-span-3">
                                               <label for="service-name" class="block mb-3 font-medium text-gray-700 text-md">Full Name</label>
                                               <input placeholder="Alex Jones" type="text" name="service-name" id="service-name" autocomplete="service-name" class="block w-full py-3 mt-1 border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm">
