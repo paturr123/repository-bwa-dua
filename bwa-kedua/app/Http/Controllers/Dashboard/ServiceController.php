@@ -5,8 +5,6 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Controller;
 
-use Illuminate\Routing\Controllers\HasMiddleware;
-use Illuminate\Routing\Controllers\Middleware;
 use App\Http\Requests\Dashboard\Service\StoreServiceRequest;
 use App\Http\Requests\Dashboard\Service\UpdateServiceRequest;
 
@@ -30,6 +28,8 @@ use Illuminate\Support\Facades\Redirect;
 
 class ServiceController extends Controller
 {
+    public $middleware = ['auth'];
+
     public function index()
     {
         $services = Service::where('users_id', Auth::user()->id)->orderBy('created_at', 'desc')->get();
@@ -182,6 +182,52 @@ class ServiceController extends Controller
                 $tagline->save();
             }
         }
+
+        //update thumbnail service
+        if($request->hasFile('thumbnails')) {
+            foreach ($request->file('thumbnails') as $key => $value) 
+            {
+                //get old photo thumbnail
+                $get_photo = ThumbnailService::where('id', $key)->first();
+
+                //store photo
+                $path = $value->store(
+                    'assets/service/thumbnail', 'public'
+                );
+
+                //update thumbnail
+                $thumbnail_service = ThumbnailService::find($key);
+                $thumbnail_service->thumbnail = $path;
+                $thumbnail_service->save();
+
+                //delete old photo thumbnail
+                $data = 'storage/'.$get_photo['photo'];
+                if(File::exists($data)){                    
+                    File::delete($data);
+                }else {
+                    File::delete('storage/app/public/'.$get_photo['photo']);
+                }
+            }            
+        }
+
+        //add to thumbnail service
+        if ($request->hasFile('thumbnail')) {
+            foreach ($request->file('thumbnail') as $file) 
+            {
+                $path = $file->store(
+                    'assets/service/thumbnail', 'public'
+                );
+
+                $thumbnail_service = new ThumbnailService;
+                $thumbnail_service->service_id = $service['id'];
+                $thumbnail_service->thumbnail = $path;
+                $thumbnail_service->save();
+            }
+        }
+
+        toast()->success('Update has been success');
+        return redirect()->route('member.service.index');
+
     }
 
     /**

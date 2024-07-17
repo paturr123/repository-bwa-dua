@@ -19,7 +19,7 @@ class DetailUser extends Model
         'deleted_at',
     ];
 
-    protected $fillable = [
+    protected $fillable = [        
         'users_id',
         'photo',
         'role',

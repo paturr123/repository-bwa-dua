@@ -26,6 +26,8 @@ use App\Models\Tagline;
 
 class MyOrderController extends Controller
 {
+    public $middleware = ['auth'];
+
     /**
      * Display a listing of the resource.
      */
@@ -64,7 +66,7 @@ class MyOrderController extends Controller
         $tagline = Tagline::where('service_id', $order['service_id'])->get();
 
         return view('pages.dashboard.order.detail', compact('order', 'thumbnail', 'advantage_service',
-    'advantage_user', 'tagline', 'service'));
+        'advantage_user', 'tagline', 'service'));
     }
 
     /**

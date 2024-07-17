@@ -25,12 +25,23 @@ use App\Models\ExperienceUser;
 
 class ProfileController extends Controller
 {
+    public $middleware = ['auth'];
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('pages.dashboard.profile');
+        $user = User::where('id', Auth::user()->id)->first();
+        $experience_user = [];
+
+    if ($user->detail_user) {
+        $experience_user = ExperienceUser::where('detail_user_id', $user->detail_user->id)
+                                        ->orderBy('id', 'asc')
+                                        ->get();
+    }
+
+    return view('pages.dashboard.profile', compact('user', 'experience_user'));
     }
 
     /**
@@ -162,7 +173,7 @@ class ProfileController extends Controller
             File::delete('storage/app/public/'.$path_photo);            
         }
 
-        toast()->success('Delete hasa been success');
+        toast()->success('Delete has been success');
         return back();
 
     }

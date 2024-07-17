@@ -19,7 +19,7 @@ class ExperienceUser extends Model
         'deleted_at',
     ];
 
-    protected $fillable = [
+    protected $fillable = [        
         'detail_user_id',
         'experience',
         'updated_at',
@@ -30,6 +30,6 @@ class ExperienceUser extends Model
     //one to many
     public function detail_user()
     {
-        return $this->belongsTo('App\Models\DetailUser', 'detail_user_id', 'id');
+        return $this->belongsTo('App/Models/DetailUser', 'detail_user_id', 'id');
     }
 }

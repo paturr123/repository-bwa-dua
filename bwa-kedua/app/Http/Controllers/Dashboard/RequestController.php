@@ -17,11 +17,12 @@ use App\Models\Order;
 use App\Models\Service;
 use App\Models\User;
 use App\Models\OrderStatus;
-
 use Illuminate\Support\Facades\Redirect;
 
 class RequestController extends Controller
 {
+    public $middleware = ['auth'];
+
     /**
      * Display a listing of the resource.
      */
