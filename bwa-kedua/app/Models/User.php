@@ -77,4 +77,29 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    //one to one
+    public function detail_user()
+    {
+        return $this->hasOne('App\Models\DetailUser','users_id');
+    }
+
+
+    //one to many
+    public function service()
+    {
+        return $this->hasMany('App\Models\Service','users_id');
+    }
+
+
+    public function order_buyer()
+    {
+        return $this->hasOne('App\Models\Order','buyer_id');
+    }
+
+
+    public function order_freelancer()
+    {
+        return $this->hasOne('App\Models\Order','freelancer_id');
+    }
 }
